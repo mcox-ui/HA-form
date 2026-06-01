@@ -1,22 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unidad 4 forms</title>
 </head>
+
 <body>
     <h1>U4 Web forms</h1>
     <hr>
 
     <form action="https://submit-form.com/usFw7PBAK" method="post">
 
-        <input type="text" name="user_name">
-        <input type="text" name="user_last_name">
-        <input type="submit" value="Enviar ahora">
+        <fieldset>
+            <legend>DATOS DEL USUARIO</legend>
+            <!-- Relacion exacta -->
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="user_name" id="nombre" autofocus>
+            <br>
+            <!-- Anidacion -->
+            <label>
+                Apellido:
+                <input type="text" name="user_last_name" placeholder="Ingrese su apellido por favor" required>
+            </label>
+            <br>
+            <label>
+                Clave Secreta
+                <input type="password" name="clave" minlength="4" maxlength="8" required pattern="(?=.*\d)(?=.*[A-Z]).+"
+                    title="La contraseña debe contener al menos un número y una letra mayúscula.">
+            </label>
+
+            <br>
+        </fieldset>
+
+        <fieldset>
+            <legend>DATOS DE SU TARJETA</legend>
+
+            <input type="text" name="titular" placeholder="Nombre del titular de la tarjeta">
+            <br>
+            <label>
+                Numero de tarjeta <br>
+                <input type="number" name="numero_tarjeta" placeholder="0000-0000-0000-0000">
+            </label>
+            <br>
+
+            <label for="codigo_seguridad">Código de Seguridad (codigo_seguridad)</label><br>
+
+            <input type="text" id="codigo_seguridad" name="codigo_seguridad" maxlength="3" pattern="\d{3}"
+                inputmode="numeric" required title="Ingrese exactamente 3 dígitos">
+
+            <br <label for="navegador">Elige tu navegador:</label>
+            <br>
+            <input list="navegadores" id="navegador" name="navegador">
+
+            <datalist id="navegadores">
+                <option value="Chrome">
+                <option value="Firefox">
+                <option value="Edge">
+                <option value="Brave">
+                <option value="Opera">
+
+            </datalist>
+            <br>
+            <input type="radio" name="genero" value="otro" class="selected">
+
+        </fieldset>
+
+        <input type="submit" value="Pagar ahora">
 
     </form>
 
 
 </body>
+
 </html>
